@@ -20,7 +20,7 @@ def main():
             elif '\-' in w:
                 word, key = map(str, w.split("\-"))
                 if not (word.strip() in words_keep):
-                    text = re.sub(f'(?<=^\b|\W){word.strip()}(?=\W|\b$)', f'{key.strip()}', text)
+                    text = re.sub(f'(?<=^\b|\W){word.strip()}(?=\W|\b$)', f'{key.strip()}', text, flags=re.IGNORECASE)
 
             elif '/r-' in w:
                 regexp, key = map(str, w.split("/r-"))

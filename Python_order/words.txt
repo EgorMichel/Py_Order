@@ -45,9 +45,9 @@ F - <font color="#800000">F</font>
 g - <font color="#800000">g</font>
 G - <font color="#800000">G</font>
 игрик - y
-игрек - y
+игрек \- y
 Игрик - y
-Игрек - y
+Игрек \- y
 y - <font color="#800000">y</font>
 косинус - cos
 Косинус - cos

@@ -14,8 +14,14 @@ def main():
         try:
             if '/-' in w:
                 word, key = map(str, w.split("/-"))
-                if not (word.strip() in words_keep):
-                    text = re.sub(word.strip(), f'{key.strip()}', text)
+                print(111)
+                text = text.split()
+                for i in range(len(text) - 1):
+                    if not (text[i] in words_keep):
+                        print(text[i])
+                        text[i] = re.sub(word.strip(), f'{key.strip()}', text[i])
+                text = ' '.join(text)
+                print(text)
 
             elif '\-' in w:
                 word, key = map(str, w.split("\-"))
@@ -25,7 +31,6 @@ def main():
             elif '/r-' in w:
                 regexp, key = map(str, w.split("/r-"))
                 if not (regexp.strip() in words_keep):
-                    print(regexp.strip())
                     text = re.sub(regexp.strip(), key.strip(), text)
         except:
             pass
@@ -66,13 +71,7 @@ words = []
 words_keep = []
 text_filename = ""
 root = tk.Tk()
-root.geometry('460x600')
-
-btn_words = tk.Button(root, text="Выбрать словарь для замены",
-                   command=add_words).place(x=30, y=370)
-path_words = tk.Label(state="disabled")
-path_words["text"] = "Выбранный файл:"
-path_words.place(x=30, y=400)
+root.geometry('460x400')
 
 btn_words_keep = tk.Button(root, text="Выбрать словарь зарезервивованных слов",
                    command=add_words_keep).place(x=30, y=10)
@@ -85,6 +84,12 @@ btn_text = tk.Button(root, text="Выбрать текст для замены",
 path_text = tk.Label(state="disabled")
 path_text["text"] = "Выбранный файл:"
 path_text.place(x=30, y=120)
+
+btn_words = tk.Button(root, text="Выбрать словарь для замены",
+                   command=add_words).place(x=30, y=170)
+path_words = tk.Label(state="disabled")
+path_words["text"] = "Выбранный файл:"
+path_words.place(x=30, y=200)
 
 result = tk.StringVar()
 result_text = tk.Label(

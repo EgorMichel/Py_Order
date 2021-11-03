@@ -15,7 +15,7 @@ def main():
             if '/-' in w:
                 word, key = map(str, w.split("/-"))
                 if not (word.strip() in words_keep):
-                    text = re.sub(f'(?i){word.strip()}(?=\W)', f'{key.strip()}', text)
+                    text = re.sub(word.strip(), f'{key.strip()}', text)
 
             elif '\-' in w:
                 word, key = map(str, w.split("\-"))
@@ -54,9 +54,9 @@ def add_words_keep():
 
 def add_main_text():
     global text
+
     text_filename = askopenfilename()
     path_text["text"] = "Выбранный файл: "+text_filename
-
     with open(text_filename, encoding="utf-8") as f:
         text = f.read()
 

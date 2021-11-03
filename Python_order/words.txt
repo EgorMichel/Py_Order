@@ -45,7 +45,7 @@ F - <font color="#800000">F</font>
 g - <font color="#800000">g</font>
 G - <font color="#800000">G</font>
 игрик - y
-игрек \- y
+игрек /- y
 Игрик - y
 Игрек \- y
 y - <font color="#800000">y</font>
@@ -292,3 +292,4 @@ sin - <font color="#800000">sin</font>
 транспонирован - ᵀ
 Транспонирован - ᵀ
 ᵀ - <font color="#800000">ᵀ</font>
+\bвал /r- ВАЛ

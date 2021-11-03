@@ -2,7 +2,6 @@ import re
 import tkinter as tk
 from tkinter.filedialog import askopenfilename
 from textwrap import wrap
-from words2reqular import add_words_from_input
 
 # filename = input("Имя файла для замены: ")
 # words = input("Имя файла со словами для замены: ")
@@ -48,7 +47,7 @@ def add_words_keep():
     global words_keep
 
     words_filename = askopenfilename()
-    path_words["text"] = "Выбранный файл: "+words_filename
+    path_words_keep["text"] = "Выбранный файл: "+words_filename
     with open(words_filename, encoding="utf-8") as g:
         words_keep = g.read().split("\n")
 
@@ -77,9 +76,9 @@ path_words.place(x=30, y=400)
 
 btn_words_keep = tk.Button(root, text="Выбрать словарь зарезервивованных слов",
                    command=add_words_keep).place(x=30, y=10)
-path_words = tk.Label(state="disabled")
-path_words["text"] = "Выбранный файл:"
-path_words.place(x=30, y=40)
+path_words_keep = tk.Label(state="disabled")
+path_words_keep["text"] = "Выбранный файл:"
+path_words_keep.place(x=30, y=40)
 
 btn_text = tk.Button(root, text="Выбрать текст для замены",
                   command=add_main_text).place(x=30, y=90)
@@ -96,24 +95,6 @@ btn_save = tk.Button(root, text="Запустить", width=10, height=2,
 names = tk.Label(
     text="alexlife\nЕвгений Сапронов\n\nИнструкция:", fg="red").place(x=300, y=20)
 
-
-word_from_input = tk.StringVar()
-word_from_input_entry = tk.Entry(root, textvariable=word_from_input, width=20)
-word_from_input_entry.grid(column = 1, row = 1)
-word_from_input_entry.place(x=32, y=230)
-
-regular_statement = tk.StringVar()
-regular_statement_entry = tk.Entry(root, textvariable=regular_statement, width=20)
-regular_statement_entry.grid(column = 1, row = 2)
-regular_statement_entry.place(x=32, y=265)
-
-def add_words_button_pushed():
-    add_words_from_input('words.txt', word_from_input.get(), regular_statement.get())
-    word_from_input_entry.delete(0, tk.END)
-    regular_statement_entry.delete(0, tk.END)
-
-words2regular_button = tk.Button(root, text="Добавить замену",
-                              command=add_words_button_pushed).place(x=30, y=190)
 
 # Текст для инструкции:
 text = 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.'

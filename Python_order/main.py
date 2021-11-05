@@ -14,11 +14,9 @@ def main():
         try:
             if '/-' in w:
                 word, key = map(str, w.split("/-"))
-                print(111)
                 text = text.split()
                 for i in range(len(text) - 1):
                     if not (text[i] in words_keep):
-                        print(text[i])
                         text[i] = re.sub(word.strip(), f'{key.strip()}', text[i])
                 text = ' '.join(text)
                 print(text)

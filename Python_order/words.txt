@@ -46,6 +46,7 @@ g - <font color="#800000">g</font>
 G - <font color="#800000">G</font>
 игрик - y
 игрек /- y
+f /- F
 Игрик - y
 Игрек \- y
 y - <font color="#800000">y</font>

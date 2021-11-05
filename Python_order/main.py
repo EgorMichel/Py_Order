@@ -15,7 +15,7 @@ def main():
             if '/-' in w:
                 word, key = map(str, w.split("/-"))
                 text = text.split()
-                for i in range(len(text) - 1):
+                for i in range(len(text)):
                     if not (text[i] in words_keep):
                         text[i] = re.sub(word.strip(), f'{key.strip()}', text[i])
                 text = ' '.join(text)
@@ -31,7 +31,7 @@ def main():
                 if not (regexp.strip() in words_keep):
                     text = re.sub(regexp.strip(), key.strip(), text)
         except:
-            pass
+            print('Unable to open file')
 
     with open(f"{result.get()}.srt", "w", encoding="utf-8") as f:
         f.write(text)
